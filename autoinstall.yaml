@@ -18,6 +18,8 @@ autoinstall:
       classic: true
     - name: code
       classic: true
+    - name: slack
+      classic: false
   packages:
     - vim
     - less
