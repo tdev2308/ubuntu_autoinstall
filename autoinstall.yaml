@@ -6,7 +6,7 @@ autoinstall:
     password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY." 
   storage:
     layout:
-      name: zfs
+      name: lvm
   snaps:
     - name: telegram-desktop
       classic: false
