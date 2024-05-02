@@ -7,8 +7,6 @@ autoinstall:
   storage:
     layout:
       name: zfs
-      match:
-	path: /dev/nvme0n1	
   snaps:
     - name: telegram-desktop
       classic: false
