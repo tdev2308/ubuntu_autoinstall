@@ -3,10 +3,12 @@ autoinstall:
   identity:
     hostname: zbook-2024
     username: tdog
-    password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY." 
+    password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY."
   storage:
     layout:
-      name: lvm
+      name: zfs
+      match:
+        path: /dev/nvme0n1
   snaps:
     - name: telegram-desktop
       classic: false
@@ -17,3 +19,9 @@ autoinstall:
   packages:
     - vim
     - less
+    - git
+#  late-commands:
+#    - curtin in-target -- dpkg -i ./protonvpn-stable-release_1.0.3-3_all.deb
+#    - curtin in-target -- apt update
+#    - curtin in-target -- apt install -y proton-vpn-gnome-desktop
+~                                                                      
