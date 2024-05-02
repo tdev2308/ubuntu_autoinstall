@@ -1,15 +1,15 @@
 autoinstall:
   version: 1
   identity:
-    hostname: ubuntu-desktop
-    username: local-optimum
-    password: "$6$ZE4WV3QRJhPUnsNv$BpkTBYjUOxOiWV5sNPYDSitTwxW.3NHLmhRqptzpa8a4KTxGpkvMaSDbyq4PVri9kdpD1t7ldUBgwB6uveObg."
+    hostname: zbook-2024
+    username: tdog
+    password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY." 
   storage:
     layout:
-      name: lvm
+      name: zfs
+      match:
+	path: /dev/nvme0n1	
   snaps:
-    - name: spotify
-      classic: false
     - name: telegram-desktop
       classic: false
     - name: obsidian
@@ -18,8 +18,8 @@ autoinstall:
       classic: true
   packages:
     - vim
-  late-commands:
-    - curtin in-target -- wget https://repo2.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3-3_all.deb
-    - curtin in-target -- dpkg -i ./protonvpn-stable-release_1.0.3-3_all.deb
-    - curtin in-target -- apt update
-    - curtin in-target -- apt install -y proton-vpn-gnome-desktop
+    - less
+#  late-commands:
+#    - curtin in-target -- dpkg -i ./protonvpn-stable-release_1.0.3-3_all.deb
+#    - curtin in-target -- apt update
+#    - curtin in-target -- apt install -y proton-vpn-gnome-desktop
