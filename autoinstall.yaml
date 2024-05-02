@@ -21,4 +21,5 @@ autoinstall:
   packages:
     - vim
     - less
-    - git                                                                  
+    - git
+    - openssh-server
