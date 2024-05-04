@@ -25,3 +25,6 @@ autoinstall:
     - less
     - git
     - openssh-server
+    - nvidia-driver-535
+    - gcc
+    - nvidia-cuda-toolkit
