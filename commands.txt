@@ -39,3 +39,60 @@ rpool/USERDATA/root_amkfrf                         528K   896G   528K  /root
 rpool/clone                                        160K   896G    96K  /clone
 
 * these should be backed up by zfs snapshot
+
+
+tdog@zbook-2024:/var/log/installer$ sudo gdisk -l /dev/nvme0n1
+GPT fdisk (gdisk) version 1.0.10
+
+Partition table scan:
+  MBR: protective
+  BSD: not present
+  APM: not present
+  GPT: present
+
+Found valid GPT with protective MBR; using GPT.
+Disk /dev/nvme0n1: 2000409264 sectors, 953.9 GiB
+Model: WD PC SN810 SDCQNRY-1T00-1006           
+Sector size (logical/physical): 512/512 bytes
+Disk identifier (GUID): 67EB0634-C872-4313-A5DB-B383D5E0AE88
+Partition table holds up to 128 entries
+Main partition table begins at sector 2 and ends at sector 33
+First usable sector is 2048, last usable sector is 2000409230
+Partitions will be aligned on 2048-sector boundaries
+Total free space is 2703 sectors (1.3 MiB)
+
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048         2203647   1.0 GiB     EF00  
+   2         2203648         6397951   2.0 GiB     8300  
+   3         6397952        23175167   8.0 GiB     8200  
+   4        23175168      2000406527   942.8 GiB   8300  
+tdog@zbook-2024:/var/log/installer$ lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0         7:0    0     4K  1 loop /snap/bare/5
+loop1         7:1    0 311.3M  1 loop /snap/code/158
+loop2         7:2    0  55.7M  1 loop /snap/core18/2823
+loop3         7:3    0  63.9M  1 loop /snap/core20/2264
+loop4         7:4    0  74.2M  1 loop /snap/core22/1380
+loop5         7:5    0 269.6M  1 loop /snap/firefox/4173
+loop6         7:6    0 218.4M  1 loop /snap/gnome-3-34-1804/93
+loop7         7:7    0 505.1M  1 loop /snap/gnome-42-2204/176
+loop8         7:8    0  91.7M  1 loop /snap/gtk-common-themes/1535
+loop9         7:9    0   240K  1 loop /snap/gtk-theme-pocillo/5
+loop10        7:10   0 117.4M  1 loop /snap/obsidian/26
+loop11        7:11   0 117.4M  1 loop /snap/slack/142
+loop12        7:12   0  10.3M  1 loop /snap/snap-store/1124
+loop13        7:13   0  10.4M  1 loop /snap/snap-store/1134
+loop14        7:14   0  38.7M  1 loop /snap/snapd/21465
+loop15        7:15   0   476K  1 loop /snap/snapd-desktop-integration/157
+loop16        7:16   0 419.8M  1 loop /snap/telegram-desktop/5820
+loop17        7:17   0 137.3M  1 loop /snap/thunderbird/470
+loop18        7:18   0  27.8M  1 loop /snap/ubuntu-budgie-welcome/510
+loop19        7:19   0  27.8M  1 loop /snap/ubuntu-budgie-welcome/516
+nvme0n1     259:0    0 953.9G  0 disk 
+├─nvme0n1p1 259:1    0     1G  0 part /boot/efi
+├─nvme0n1p2 259:2    0     2G  0 part 
+├─nvme0n1p3 259:3    0     8G  0 part [SWAP]
+└─nvme0n1p4 259:4    0 942.8G  0 part 
+
+
+
