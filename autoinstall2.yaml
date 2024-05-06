@@ -37,22 +37,22 @@ autoinstall:
        number: 4
        size: 150G
     -  type: partition
-	     device: disk1
+       device: disk1
        id: disk1p5
        number: 5
        size: *G
     -  id: disk1_rootpool
-        mountpoint: /
-        pool: rpool
-        type: zpool
-        vdevs:
-        - disk1p1
+       mountpoint: /
+       pool: rpool
+       type: zpool
+       vdevs:
+       - disk1p1
     -  id: disk1_rootpool_container
        pool: disk1_rootpool
        properties:
         canmount: 'off'
         mountpoint: 'none'
-       type: zfs
+        type: zfs
        volume: /ROOT
   snaps:
     - name: telegram-desktop
