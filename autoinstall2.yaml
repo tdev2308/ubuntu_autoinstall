@@ -21,6 +21,28 @@ autoinstall:
         number: 1
         size: 1G
         flag: bios_grub
+    -   type: partition
+    	  device: disk1
+        id: disk1p2
+        number: 2
+        size: 2G
+    -   type: partition
+    	  device: disk1
+        id: disk1p3
+        number: 3
+        size: 8G
+        flag: swap
+    -   type: partition
+    	  device: disk1
+        id: disk1p4
+        number: 4
+        size: 150G
+	# rpool partition - zfs, /
+    -   type: partition
+    	  device: disk1
+        id: disk1p5
+        number: 5
+        size: *G
   snaps:
     - name: telegram-desktop
       classic: false
