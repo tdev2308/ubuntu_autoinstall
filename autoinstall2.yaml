@@ -37,7 +37,7 @@ autoinstall:
        number: 4
        size: 150G
     -  type: partition
-	     device: disk1
+       device: disk1
        id: disk1p5
        number: 5
        size: *G
