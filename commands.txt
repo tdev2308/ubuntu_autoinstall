@@ -1,0 +1,41 @@
+45  sudo zfs list -t snapshot
+46  sudo zfs list
+47  ls /usr
+48  ls /usr/*
+49  sudo zfs list
+50  ls /opt
+51  find /usr -name *cuda*
+52  cd /var/log/installer/
+53  ls
+54  find . -name *yaml
+55  openssl passwd
+
+tdog@zbook-2024:~$ sudo zfs list
+NAME                                               USED  AVAIL  REFER  MOUNTPOINT
+bpool                                             96.3M  1.66G    96K  /boot
+bpool/BOOT                                        95.7M  1.66G    96K  none
+bpool/BOOT/ubuntu_tabks1                          95.6M  1.66G  95.6M  /boot
+rpool                                             10.9G   896G    96K  /
+rpool/ROOT                                        10.6G   896G    96K  none
+*rpool/ROOT/ubuntu_tabks1                          10.6G   896G  8.16G  /
+rpool/ROOT/ubuntu_tabks1/srv                        96K   896G    96K  /srv
+*rpool/ROOT/ubuntu_tabks1/usr                       232K   896G    96K  /usr
+rpool/ROOT/ubuntu_tabks1/usr/local                 136K   896G   136K  /usr/local
+rpool/ROOT/ubuntu_tabks1/var                      2.42G   896G    96K  /var
+rpool/ROOT/ubuntu_tabks1/var/games                  96K   896G    96K  /var/games
+rpool/ROOT/ubuntu_tabks1/var/lib                  2.41G   896G  2.31G  /var/lib
+rpool/ROOT/ubuntu_tabks1/var/lib/AccountsService   108K   896G   108K  /var/lib/AccountsService
+rpool/ROOT/ubuntu_tabks1/var/lib/NetworkManager    144K   896G   144K  /var/lib/NetworkManager
+rpool/ROOT/ubuntu_tabks1/var/lib/apt              56.8M   896G  56.8M  /var/lib/apt
+rpool/ROOT/ubuntu_tabks1/var/lib/dpkg             43.4M   896G  43.4M  /var/lib/dpkg
+rpool/ROOT/ubuntu_tabks1/var/log                  10.1M   896G  10.1M  /var/log
+rpool/ROOT/ubuntu_tabks1/var/mail                   96K   896G    96K  /var/mail
+rpool/ROOT/ubuntu_tabks1/var/snap                 2.05M   896G  2.05M  /var/snap
+rpool/ROOT/ubuntu_tabks1/var/spool                 120K   896G   120K  /var/spool
+rpool/ROOT/ubuntu_tabks1/var/www                    96K   896G    96K  /var/www
+rpool/USERDATA                                     273M   896G    96K  none
+rpool/USERDATA/home_amkfrf                         272M   896G   272M  /home
+rpool/USERDATA/root_amkfrf                         528K   896G   528K  /root
+rpool/clone                                        160K   896G    96K  /clone
+
+* these should be backed up by zfs snapshot
