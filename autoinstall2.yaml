@@ -15,6 +15,37 @@ autoinstall:
         match:
           path: /dev/nvme0n1
         wipe: superblock
+    -   type: partition
+    	  device: disk1
+        id: disk1p1
+        number: 1
+        size: 1G
+        flag: bios_grub
+    # bpool partition - zfs, /boot
+    -   type: partition
+    	  device: disk1
+        id: disk1p2
+        number: 2
+        size: 2G
+	# Swap partition - no further action required
+    -   type: partition
+    	  device: disk1
+        id: disk1p3
+        number: 3
+        size: 8G
+        flag: swap
+	# Timeshift partition - ext4
+    -   type: partition
+    	  device: disk1
+        id: disk1p4
+        number: 4
+        size: 150G
+	# rpool partition - zfs, /
+    -   type: partition
+    	  device: disk1
+        id: disk1p5
+        number: 5
+        size: *G
   snaps:
     - name: telegram-desktop
       classic: false
