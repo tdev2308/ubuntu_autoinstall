@@ -5,20 +5,42 @@ autoinstall:
     username: tdog
     password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY."
   storage:
-     config:
-     -   grub_device: true
-         id: disk1
-         name: main_disk
-         ptable: gpt
-         serial: disk-a
-         type: disk
-         wipe: superblock
-     -   device: disk1
-         id: disk1p1
-         number: 1
-         size: 9G
-         type: partition
-     version: 1
+    config:
+    -   type: disk
+        id: disk1
+        name: main_disk
+        grub_device: true
+        ptable: gpt
+        match:
+        	path: /dev/nvme0n1
+        wipe: superblock
+    -   type: partition
+    	  device: disk1
+        id: disk1p1
+        number: 1
+        size: 1G
+        flag: bios_grub
+    -   type: partition
+    	  device: disk1
+        id: disk1p2
+        number: 2
+        size: 2G
+    -   type: partition
+    	  device: disk1
+        id: disk1p3
+        number: 3
+        size: 8G
+        flag: swap
+    -   type: partition
+    	  device: disk1
+        id: disk1p4
+        number: 4
+        size: 150G
+    -   type: partition
+    	  device: disk1
+        id: disk1p5
+        number: 5
+        size: *G
   snaps:
     - name: telegram-desktop
       classic: false
