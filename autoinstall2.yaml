@@ -52,7 +52,7 @@ autoinstall:
        properties:
         canmount: 'off'
         mountpoint: 'none'
-        type: zfs
+       type: zfs
        volume: /ROOT
   snaps:
     - name: telegram-desktop
