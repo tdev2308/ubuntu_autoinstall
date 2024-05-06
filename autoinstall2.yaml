@@ -1,0 +1,9 @@
+storage:
+    config:
+    -   grub_device: true
+        id: disk1
+        name: main_disk
+        ptable: gpt
+        serial: disk-a
+        type: disk
+        wipe: superblock
