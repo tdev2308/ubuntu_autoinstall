@@ -5,23 +5,58 @@ autoinstall:
     username: tdog
     password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY."
   storage:
-    config:
-# define boot disk
-    -   type: disk
+     config:
+    -   grub_device: true
         id: disk1
         name: main_disk
-        grub_device: true
         ptable: gpt
-        match:
-          path: /dev/nvme0n1
+        serial: disk-a
+        type: disk
         wipe: superblock
-    -   type: partition
-        device: disk1
+    -   device: disk1
         id: disk1p1
         number: 1
-        size: 1G
+        size: 9G
+        type: partition
+    -   device: disk1
         flag: bios_grub
-     version:   1    
+        id: bios_boot
+        number: 2
+        size: 1M
+        type: partition
+    -   id: disk1_rootpool
+        mountpoint: /
+        pool: rpool
+        type: zpool
+        vdevs:
+        - disk1p1
+    -   id: disk1_rootpool_container
+        pool: disk1_rootpool
+        properties:
+            canmount: 'off'
+            mountpoint: 'none'
+        type: zfs
+        volume: /ROOT
+    -   id: disk1_rootpool_rootfs
+        pool: disk1_rootpool
+        properties:
+            canmount: noauto
+            mountpoint: /
+        type: zfs
+        volume: /ROOT/zfsroot
+    -   id: disk1_rootpool_home
+        pool: disk1_rootpool
+        properties:
+            setuid: 'off'
+        type: zfs
+        volume: /home
+    -   id: disk1_rootpool_home_root
+        pool: disk1_rootpool
+        type: zfs
+        volume: /home/root
+        properties:
+            mountpoint: /root
+    version: 1
   snaps:
     - name: telegram-desktop
       classic: false
