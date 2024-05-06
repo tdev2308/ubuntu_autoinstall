@@ -13,7 +13,7 @@ autoinstall:
          serial: disk-a
          type: disk
          wipe: superblock
-     -    device: disk1
+     -   device: disk1
          id: disk1p1
          number: 1
          size: 9G
