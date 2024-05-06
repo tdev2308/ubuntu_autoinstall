@@ -36,7 +36,7 @@ autoinstall:
     	device: disk1
         id: disk1p4
         number: 4
-        size: *G
+        size: 150G
   snaps:
     - name: telegram-desktop
       classic: false
