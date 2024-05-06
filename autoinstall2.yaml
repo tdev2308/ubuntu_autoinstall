@@ -21,6 +21,7 @@ autoinstall:
         number: 1
         size: 1G
         flag: bios_grub
+     version:   1    
   snaps:
     - name: telegram-desktop
       classic: false
