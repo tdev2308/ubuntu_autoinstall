@@ -13,7 +13,7 @@ autoinstall:
         grub_device: true
         ptable: gpt
         match:
-        	path: /dev/nvme0n1
+          path: /dev/nvme0n1
         wipe: superblock
 # define partitioning
 	# EFI partition - vfat, /boot/efi
