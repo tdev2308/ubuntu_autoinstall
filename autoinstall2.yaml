@@ -1,9 +1,77 @@
-storage:
+autoinstall:
+  version: 1
+  identity:
+    hostname: zbook-2024
+    username: tdog
+    password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY."
+  storage:
     config:
-    -   grub_device: true
+# define boot disk
+    -   type: disk
         id: disk1
         name: main_disk
+        grub_device: true
         ptable: gpt
-        serial: disk-a
-        type: disk
+        match:
+        	path: /dev/nvme0n1
         wipe: superblock
+# define partitioning
+	# EFI partition - vfat, /boot/efi
+    -   type: partition
+    	device: disk1
+        id: disk1p1
+        number: 1
+        size: 1G
+        flag: bios_grub
+    # bpool partition - zfs, /boot
+    -   type: partition
+    	device: disk1
+        id: disk1p2
+        number: 2
+        size: 2G
+	# Swap partition - no further action required
+    -   type: partition
+    	device: disk1
+        id: disk1p3
+        number: 3
+        size: 8G
+        flag: swap
+	# Timeshift partition - ext4
+    -   type: partition
+    	device: disk1
+        id: disk1p4
+        number: 4
+        size: 150G
+	# rpool partition - zfs, /
+    -   type: partition
+    	device: disk1
+        id: disk1p5
+        number: 5
+        size: *G
+# zpool: configure bpool
+	# disk1p2
+	# bpool container
+		# zfs configure boot - /boot
+# zpool configure rpool
+	# disk1p5
+	# rpool container
+		# zfs configure root - /
+		# zfs configure home - /home
+		# zfs configure root home- /root
+  snaps:
+    - name: telegram-desktop
+      classic: false
+    - name: obsidian
+      classic: true
+    - name: code
+      classic: true
+    - name: slack
+      classic: false
+  packages:
+    - vim
+    - less
+    - git
+    - openssh-server
+    - nvidia-driver-535
+    - gcc
+    - nvidia-cuda-toolkit
