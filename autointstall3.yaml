@@ -21,24 +21,20 @@ autoinstall:
         size: 1M
         type: partition    
     -   device: disk1
-        id: disk1p1
+        id: disk1p2
         number: 2
         size: 9G
         type: partition
         flag: swap
-    -   id: disk1_rootpool
-        mountpoint: /
-        pool: rpool
-        type: zpool
-        vdevs:
-        - disk1p1
-    -   id: disk1_rootpool_container
-        pool: disk1_rootpool
-        properties:
-            canmount: 'off'
-            mountpoint: 'none'
-        type: zfs
-        volume: /ROOT
+    -   type: partition
+        device: disk1
+        id: disk1p3
+        number: 3
+        size: 150G
+    -   type: partition
+        device: disk1
+        id: disk1p4
+        size: *G
     version: 1
   snaps:
     - name: telegram-desktop
