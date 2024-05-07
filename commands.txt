@@ -95,6 +95,8 @@ nvme0n1     259:0    0 953.9G  0 disk
 └─nvme0n1p4 259:4    0 942.8G  0 part 
 
 
+ssh -X -o IdentitiesOnly=yes ubuntu-budgie@192.168.68.111
+
 ubuntu-budgie@ubuntu-budgie:~$ cat /var/lib/snapd/desktop/applications/ubuntu-desktop-bootstrap_ubuntu-desktop-bootstrap.desktop 
 [Desktop Entry]
 X-SnapInstanceName=ubuntu-desktop-bootstrap
