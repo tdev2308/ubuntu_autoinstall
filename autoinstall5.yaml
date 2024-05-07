@@ -36,6 +36,12 @@ autoinstall:
      device: disk1
      number: 4
      size: 150G
+   - id: disk1_rootpool
+     mountpoint: /
+     pool: rpool
+     type: zpool
+     vdevs:
+     - disk1p4  
    version: 1
   snaps:
     - name: telegram-desktop
