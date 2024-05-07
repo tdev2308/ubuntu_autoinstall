@@ -6,13 +6,14 @@ autoinstall:
     password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY."
   storage:
    config:
-   - id: disk1-nvme0n1
+   - id: disk1
      type: disk
      ptable: gpt
      name: main_disk
      wipe: superblock
      grub_device: true
-     path: /dev/nvme0n1
+     match:
+       path: /dev/nvme0n1
    - id: disk1p1
      type: partition
      size: 1G
