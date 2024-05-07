@@ -30,6 +30,7 @@ autoinstall:
      device: disk1
      number: 3
      size: 8G
+     flag: swap
    - id: disk1p4
      type: partition
      device: disk1
