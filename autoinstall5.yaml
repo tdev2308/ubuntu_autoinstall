@@ -46,7 +46,7 @@ autoinstall:
      pool: disk1_rootpool
      properties:
        canmount: 'off'
-       mountpoint: 'none'
+       #mountpoint: 'none'
      type: zfs
      volume: /ROOT
    version: 1
