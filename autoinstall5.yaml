@@ -40,6 +40,14 @@ autoinstall:
     type: partition
     device: disk1
     number: 5
+  - id: disk1_root
+    type: format
+    fstype: zfsroot
+    volume: disk1
+  - id: disk1_mount
+    type: mount
+    path: /
+    device: disk1_root
    version: 1
   snaps:
     - name: telegram-desktop
