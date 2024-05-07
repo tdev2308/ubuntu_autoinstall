@@ -36,11 +36,20 @@ autoinstall:
      device: disk1
      number: 4
      size: 150G
+   - id: disk1p5
+     type: partition
+     device: disk1
+     number: 5
+     size: -1
+   - id: disk1_ext
+     type: format
+     fstype: ext4
+     volume: disk1p4  
    - id: disk1_rootpool
      mountpoint: /
      pool: rpool
      type: zpool
-     vdevs: disk1p4
+     vdevs: disk1p5
    - id: disk1_rootpool_container
      pool: disk1_rootpool
      properties:
@@ -49,20 +58,3 @@ autoinstall:
      type: zfs
      volume: /ROOT
    version: 1
-  snaps:
-    - name: telegram-desktop
-      classic: false
-    - name: obsidian
-      classic: true
-    - name: code
-      classic: true
-    - name: slack
-      classic: false
-  packages:
-    - vim
-    - less
-    - git
-    - openssh-server
-    - nvidia-driver-535
-    - gcc
-    - nvidia-cuda-toolkit
