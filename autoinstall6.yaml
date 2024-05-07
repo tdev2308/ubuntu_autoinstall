@@ -12,6 +12,8 @@ autoinstall:
      name: main_disk
      wipe: superblock
      grub_device: true
+     match:
+       path: /dev/nvme0n1
    - id: disk1p1
      type: partition
      number: 1
