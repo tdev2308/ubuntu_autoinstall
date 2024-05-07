@@ -110,5 +110,19 @@ Icon=ubiquity
 Terminal=false
 Categories=GTK;System;Settings;
 
+sudo gdisk -l /dev/nvme0n1
+
+tdog@tdog-Fury-16-G10:/var/log/installer/curtin-install$ ll
+total 48
+drwxr-xr-x 2 root root     8 May  7 14:03 ./
+drwxrwx--- 4 root adm     20 May  7 14:05 ../
+-rw------- 1 root root  7053 May  7 14:03 subiquity-curthooks.conf
+-rw------- 1 root root   472 May  7 14:00 subiquity-curtin-apt.conf
+-rw------- 1 root root  7053 May  7 14:00 subiquity-extract.conf
+-rw------- 1 root root   340 May  7 14:00 subiquity-initial.conf
+-rw------- 1 root root  5911 May  7 14:00 subiquity-partitioning.conf
+
+
+
 
 
