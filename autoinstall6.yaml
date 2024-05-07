@@ -18,13 +18,13 @@ autoinstall:
      type: partition
      size: 1G
      number: 1
-     device: disk-nvme01n1
+     device: disk-nvme0n1
      flag: bios_grub
    - id: disk1p2
      type: partition
      number: 2
      size: 1G
-     device: disk-nvme01n1
+     device: disk-nvme0n1
    - id: disk1_root
      type: format
      fstype: zfsroot
