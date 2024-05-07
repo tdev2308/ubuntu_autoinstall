@@ -35,18 +35,23 @@ autoinstall:
      type: partition
      device: disk1
      number: 4
+     size: 150G
+  -  id: disk1p5
+     type: partition
+     device: disk1
+     number: 5
      size: -1
    - id: disk1_rootpool
      mountpoint: /
      pool: rpool
      type: zpool
      vdevs:
-     - disk1p4
+     - disk1p5
    - id: disk1_rootpool_container
      pool: disk1_rootpool
      properties:
        canmount: 'off'
-       #mountpoint: 'none'
+       mountpoint: 'none'
      type: zfs
      volume: /ROOT
    version: 1
