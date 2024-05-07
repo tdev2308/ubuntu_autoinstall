@@ -6,7 +6,7 @@ autoinstall:
     password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY."
   storage:
    config:
-   - id: sda
+   - id: disk1
      type: disk
      ptable: gpt
      name: main_disk
@@ -14,26 +14,26 @@ autoinstall:
      grub_device: true
      match:
        path: /dev/nvme0n1
-   - id: sda1
+   - id: disk1p1
      type: partition
      number: 1
      size: 9G
-     device: sda
+     device: disk1
    - id: bios_boot
      type: partition
      size: 1M
      number: 2
-     device: sda
+     device: disk1
      flag: bios_grub
-   - id: sda1_root
+   - id: disk1_root
      type: format
      fstype: zfsroot
-     volume: sda1
+     volume: /ROOT
      label: 'cloudimg-rootfs'
-   - id: sda1_mount
+   - id: disk1_mount
      type: mount
      path: /
-     device: sda1_root
+     device: disk1_root
    version: 1
   snaps:
     - name: telegram-desktop
