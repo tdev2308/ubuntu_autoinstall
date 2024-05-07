@@ -14,17 +14,17 @@ autoinstall:
      grub_device: true
      match:
        path: /dev/nvme0n1
-   - id: sda1
-     type: partition
-     number: 1
-     size: 9G
-     device: sda
    - id: bios_boot
      type: partition
      size: 1M
-     number: 2
+     number: 1
      device: sda
      flag: bios_grub
+   - id: sda1
+     type: partition
+     number: 2
+     size: 9G
+     device: sda  
    - id: sda1_root
      type: format
      fstype: zfsroot
