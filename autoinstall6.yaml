@@ -42,5 +42,4 @@ autoinstall:
      type: zpool
      vdevs: 
        - disk1p4
-     volume: /ROOT
    version: 1
