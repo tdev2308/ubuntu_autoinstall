@@ -35,6 +35,7 @@ autoinstall:
      type: partition
      device: disk1
      number: 4
+     size: -1
    - id: disk1_rootpool
      mountpoint: /
      pool: rpool
