@@ -34,7 +34,6 @@ autoinstall:
     -   type: partition
         device: disk1
         id: disk1p4
-        size: *G
     version: 1
   snaps:
     - name: telegram-desktop
