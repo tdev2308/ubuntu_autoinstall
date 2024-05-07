@@ -6,7 +6,7 @@ autoinstall:
     password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY."
   storage:
    config:
-   - id: disk1
+   - id: disk1-nvme0n1
      type: disk
      ptable: gpt
      name: main_disk
