@@ -22,8 +22,8 @@ autoinstall:
         type: partition    
     -   type: partition
         device: disk1
-        id: disk1p3
-        number: 3
+        id: disk1p2
+        number: 2
         size: 150G
     -   id: disk1_root
         type: format
