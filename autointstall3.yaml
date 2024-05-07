@@ -11,6 +11,8 @@ autoinstall:
         name: main_disk
         ptable: gpt
         serial: disk-a
+        match:
+          path: /dev/nvme0n1
         type: disk
         wipe: superblock
     -   device: disk1
