@@ -95,4 +95,18 @@ nvme0n1     259:0    0 953.9G  0 disk
 └─nvme0n1p4 259:4    0 942.8G  0 part 
 
 
+ubuntu-budgie@ubuntu-budgie:~$ cat /var/lib/snapd/desktop/applications/ubuntu-desktop-bootstrap_ubuntu-desktop-bootstrap.desktop 
+[Desktop Entry]
+X-SnapInstanceName=ubuntu-desktop-bootstrap
+Type=Application
+Version=1.0
+Name=Install RELEASE
+Comment=Install this system permanently to your hard disk
+Keywords=ubiquity;
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/ubuntu-desktop-bootstrap_ubuntu-desktop-bootstrap.desktop /snap/bin/ubuntu-desktop-bootstrap
+Icon=ubiquity
+Terminal=false
+Categories=GTK;System;Settings;
+
+
 
