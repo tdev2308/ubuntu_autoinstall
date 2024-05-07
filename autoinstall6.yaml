@@ -12,28 +12,25 @@ autoinstall:
      name: main_disk
      wipe: superblock
      grub_device: true
-     match:
-       path: /dev/nvme0n1
-   - id: disk1p1
+   - id: sda1
      type: partition
-     size: 1G
      number: 1
-     device: disk1
-     flag: bios_grub
-   - id: disk1p2
+     size: 9G
+     device: sda
+   - id: bios_boot
      type: partition
+     size: 1M
      number: 2
-     size: 2G
-     device: disk1  
-   - id: disk1p3
-     type: partition
-     device: disk1
-     number: 3
-     size: 8G
-     flag: swap
-   - id: disk1p4
-     type: partition
-     device: disk1
-     number: 4
-     size: 200G 
+     device: sda
+     flag: bios_grub
+   - id: sda1_root
+     type: format
+     fstype: zfsroot
+     volume: sda1
+     label: 'cloudimg-rootfs'
+   - id: sda1_mount
+     type: mount
+     path: /
+     device: sda1_root
+   version: 1 
    version: 1
