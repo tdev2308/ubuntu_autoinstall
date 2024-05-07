@@ -1,0 +1,76 @@
+autoinstall:
+  version: 1
+  identity:
+    hostname: zbook-2024
+    username: tdog
+    password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY."
+  storage:
+    config:
+    -   grub_device: true
+        id: disk1
+        name: main_disk
+        ptable: gpt
+        serial: disk-a
+        type: disk
+        wipe: superblock
+    -   device: disk1
+        id: disk1p1
+        number: 1
+        size: 9G
+        type: partition
+    -   device: disk1
+        flag: bios_grub
+        id: bios_boot
+        number: 2
+        size: 1M
+        type: partition
+    -   id: disk1_rootpool
+        mountpoint: /
+        pool: rpool
+        type: zpool
+        vdevs:
+        - disk1p1
+    -   id: disk1_rootpool_container
+        pool: disk1_rootpool
+        properties:
+            canmount: 'off'
+            mountpoint: 'none'
+        type: zfs
+        volume: /ROOT
+    -   id: disk1_rootpool_rootfs
+        pool: disk1_rootpool
+        properties:
+            canmount: noauto
+            mountpoint: /
+        type: zfs
+        volume: /ROOT/zfsroot
+    -   id: disk1_rootpool_home
+        pool: disk1_rootpool
+        properties:
+            setuid: 'off'
+        type: zfs
+        volume: /home
+    -   id: disk1_rootpool_home_root
+        pool: disk1_rootpool
+        type: zfs
+        volume: /home/root
+        properties:
+            mountpoint: /root
+    version: 1
+  snaps:
+    - name: telegram-desktop
+      classic: false
+    - name: obsidian
+      classic: true
+    - name: code
+      classic: true
+    - name: slack
+      classic: false
+  packages:
+    - vim
+    - less
+    - git
+    - openssh-server
+    - nvidia-driver-535
+    - gcc
+    - nvidia-cuda-toolkit
