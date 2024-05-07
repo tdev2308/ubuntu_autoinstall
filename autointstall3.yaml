@@ -9,7 +9,6 @@ autoinstall:
    - id: sda
      type: disk
      ptable: gpt
-     serial: dev_vda
      name: main_disk
      wipe: superblock
      grub_device: true
