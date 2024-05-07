@@ -9,10 +9,11 @@ autoinstall:
    - id: sda
      type: disk
      ptable: gpt
-     serial: dev_vda
      name: main_disk
      wipe: superblock
      grub_device: true
+     match:
+       path: /dev/nvme0n1
    - id: sda1
      type: partition
      number: 1
