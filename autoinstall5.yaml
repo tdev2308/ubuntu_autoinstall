@@ -40,8 +40,7 @@ autoinstall:
      mountpoint: /
      pool: rpool
      type: zpool
-     vdevs:
-     - disk1p5
+     vdevs: disk1p4
    - id: disk1_rootpool_container
      pool: disk1_rootpool
      properties:
