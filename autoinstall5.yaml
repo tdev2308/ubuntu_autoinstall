@@ -36,11 +36,6 @@ autoinstall:
      device: disk1
      number: 4
      size: 150G
-  -  id: disk1p5
-     type: partition
-     device: disk1
-     number: 5
-     size: 200G
    - id: disk1_rootpool
      mountpoint: /
      pool: rpool
