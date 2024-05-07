@@ -40,7 +40,7 @@ autoinstall:
      type: partition
      device: disk1
      number: 5
-     size: -1
+     size: 700G
    - id: disk1_rootpool
      mountpoint: /
      pool: rpool
