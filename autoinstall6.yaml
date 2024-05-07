@@ -6,7 +6,7 @@ autoinstall:
     password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY."
   storage:
    config:
-   - id: disk1-nvme01n1
+   - id: disk1
      type: disk
      ptable: gpt
      name: main_disk
@@ -17,13 +17,13 @@ autoinstall:
      type: partition
      size: 1G
      number: 1
-     device: disk1-nvme01n1
+     device: disk1-nvme0n1
      flag: bios_grub
    - id: disk1p2
      type: partition
      number: 2
      size: 9G
-     device: disk1-nvme01n1 
+     device: disk1-nvme0n1 
    - id: disk1_root
      type: format
      fstype: zfsroot
