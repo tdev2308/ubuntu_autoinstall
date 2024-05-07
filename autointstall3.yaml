@@ -28,7 +28,6 @@ autoinstall:
    - id: disk1_root
      type: format
      fstype: zfsroot
-     volume: /ROOT
      label: 'cloudimg-rootfs'
    - id: disk1_mount
      type: mount
