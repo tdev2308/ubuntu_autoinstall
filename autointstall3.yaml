@@ -20,20 +20,29 @@ autoinstall:
         number: 1
         size: 1M
         type: partition    
-    -   device: disk1
-        id: disk1p2
-        number: 2
-        size: 9G
-        type: partition
-        flag: swap
+    #-   device: disk1
+    #    id: disk1p2
+    #    number: 2
+    #    size: 9G
+    #    type: partition
+    #    flag: swap
     -   type: partition
         device: disk1
         id: disk1p3
         number: 3
         size: 150G
-    -   type: partition
-        device: disk1
-        id: disk1p4
+    -   id: disk1_root
+        type: format
+        fstype: zfsroot
+        volume: disk1
+        label: 'cloudimg-rootfs'
+   -    id: disk1_mount
+        type: mount
+        path: /
+        device: disk1_root
+    #-   type: partition
+    #    device: disk1
+    #    id: disk1p4
     version: 1
   snaps:
     - name: telegram-desktop
