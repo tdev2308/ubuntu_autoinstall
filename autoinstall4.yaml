@@ -32,7 +32,7 @@ autoinstall:
      size: 8G
    - id: disk1p4
      type: partition
-     device: sda1_root
+     device: disk1
      number: 4
      size: 150G
   - id: disk1p5
