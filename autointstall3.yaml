@@ -39,25 +39,6 @@ autoinstall:
             mountpoint: 'none'
         type: zfs
         volume: /ROOT
-    -   id: disk1_rootpool_rootfs
-        pool: disk1_rootpool
-        properties:
-            canmount: noauto
-            mountpoint: /
-        type: zfs
-        volume: /ROOT/zfsroot
-    -   id: disk1_rootpool_home
-        pool: disk1_rootpool
-        properties:
-            setuid: 'off'
-        type: zfs
-        volume: /home
-    -   id: disk1_rootpool_home_root
-        pool: disk1_rootpool
-        type: zfs
-        volume: /home/root
-        properties:
-            mountpoint: /root
     version: 1
   snaps:
     - name: telegram-desktop
