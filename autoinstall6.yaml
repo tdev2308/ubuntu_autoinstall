@@ -42,11 +42,5 @@ autoinstall:
      type: zpool
      vdevs: 
        - disk1p4
-   - id: disk1_rootpool_container
-     pool: disk1_rootpool
-     properties:
-       canmount: 'off'
-       mountpoint: 'none'
-     type: zfs
      volume: /ROOT
    version: 1
