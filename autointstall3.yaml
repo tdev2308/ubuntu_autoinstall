@@ -25,6 +25,11 @@ autoinstall:
      number: 2
      device: disk1
      flag: bios_grub
+  -  type: format
+     id: boot-format
+     volume: boot-part
+     fstype: ext4
+     label: BOOT
    - id: disk1_root
      type: format
      fstype: zfsroot
