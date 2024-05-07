@@ -27,7 +27,7 @@ autoinstall:
      flag: bios_grub
   -  type: format
      id: boot-format
-     volume: disk1p1
+     volume: bios_boot
      fstype: ext4
      label: BOOT
    - id: disk1_root
