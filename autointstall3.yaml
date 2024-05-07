@@ -10,7 +10,7 @@ autoinstall:
         id: disk1
         name: main_disk
         ptable: gpt
-        serial: disk-a
+        #serial: disk-a
         match:
           path: /dev/nvme0n1
         type: disk
