@@ -329,9 +329,9 @@ storage:
       mountpoint: /home
     id: zfs-21
     type: zfs
-  version: 2
-swap:
-  size: 0
+#  version: 2
+#swap:
+#  size: 0
 # write_files:
 #   etc_default_keyboard:
 #     content: '# KEYBOARD CONFIGURATION FILE
