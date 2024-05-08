@@ -131,7 +131,7 @@ autoinstall:
       number: 5
       preserve: false
       offset: 29045555200
-      path: /dev/nvme0n1p4
+      path: /dev/nvme0n1p5
       id: partition-4
       type: partition
     - vdevs:
