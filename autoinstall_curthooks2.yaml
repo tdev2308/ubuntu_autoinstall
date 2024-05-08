@@ -1,0 +1,30 @@
+autoinstall:
+  version: 1
+  identity:
+    hostname: zbook-2024
+    username: tdog
+    password: ""
+  storage:
+    layout:
+      name: zfs
+    config:
+      - type: disk
+        match:
+          path: /dev/nvme0n1
+  snaps:
+    - name: telegram-desktop
+      classic: false
+    - name: obsidian
+      classic: true
+    - name: code
+      classic: true
+    - name: slack
+      classic: false
+  packages:
+    - vim
+    - less
+    - git
+    - openssh-server
+    - nvidia-driver-535
+    - gcc
+    - nvidia-cuda-toolkit
