@@ -1,5 +1,5 @@
 autoinstall:
-  version: 2
+  version: 1
   identity:
     hostname: zbook-2024
     username: tdog
@@ -176,6 +176,7 @@ autoinstall:
         mountpoint: /home
       id: zfs-21
       type: zfs
+    version: 2  
   snaps:
     - name: telegram-desktop
       classic: false
