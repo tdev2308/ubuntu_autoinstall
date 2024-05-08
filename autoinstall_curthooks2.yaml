@@ -1,5 +1,5 @@
 autoinstall:
-  version: 2
+  version: 1
   identity:
     hostname: zbook-2024
     username: tdog
@@ -269,6 +269,7 @@ autoinstall:
     device: format-1
     id: mount-0
     type: mount
+  version: 2  
   version: 2
 swap:
   size: 0
