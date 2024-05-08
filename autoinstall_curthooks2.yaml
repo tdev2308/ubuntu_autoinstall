@@ -269,7 +269,6 @@ autoinstall:
     device: format-1
     id: mount-0
     type: mount
-  version: 2  
   version: 2
 swap:
   size: 0
