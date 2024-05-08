@@ -176,16 +176,4 @@ autoinstall:
         mountpoint: /home
       id: zfs-21
       type: zfs
-    version: 2  
-  snaps:
-    - name: telegram-desktop
-      classic: false
-    - name: obsidian
-      classic: true
-    - name: code
-      classic: true
-    - name: slack
-      classic: false
-  packages:
-    - vim
-    - less      
+    version: 2      
