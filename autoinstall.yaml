@@ -3,7 +3,7 @@ autoinstall:
   identity:
     hostname: zbook-2024
     username: tdog
-    password: "$1$PMKBvUAs$BNH5Bl8pXXAhILGAjg.KY."
+    password: ""
   storage:
    config:
    - id: disk1
