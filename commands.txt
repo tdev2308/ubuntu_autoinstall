@@ -123,6 +123,7 @@ drwxrwx--- 4 root adm     20 May  7 14:05 ../
 -rw------- 1 root root  5911 May  7 14:00 subiquity-partitioning.conf
 
 
+env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/ubuntu-desktop-bootstrap_ubuntu-desktop-bootstrap.desktop /snap/bin/ubuntu-desktop-bootstrap
 
 
 
