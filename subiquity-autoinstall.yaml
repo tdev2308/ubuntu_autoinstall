@@ -63,7 +63,7 @@ autoinstall:
       id: partition-3
       type: partition
     - device: disk-nvme0n1
-      size: 100G
+      size: 500G
       number: 5
       preserve: false
       path: /dev/nvme0n1p5
