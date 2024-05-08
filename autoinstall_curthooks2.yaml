@@ -5,12 +5,271 @@ autoinstall:
     username: tdog
     password: ""
   storage:
-    layout:
-      name: zfs
-    config:
-      - type: disk
-        match:
-          path: /dev/nvme0n1
+  config:
+  - transport: pcie
+    preserve: true
+    id: nvme-controller-nvme0
+    type: nvme_controller
+  - ptable: gpt
+    serial: WD_PC_SN810_SDCQNRY-1T00-1006_240343800626_1
+    wwn: eui.e8238fa6bf530001001b448b476ad3ff
+    nvme_controller: nvme-controller-nvme0
+    path: /dev/nvme0n1
+    wipe: superblock-recursive
+    preserve: false
+    name: ''
+    grub_device: false
+    id: disk-nvme0n1
+    type: disk
+  - device: disk-nvme0n1
+    size: 1127219200
+    wipe: superblock
+    flag: boot
+    number: 1
+    preserve: false
+    grub_device: true
+    offset: 1048576
+    path: /dev/nvme0n1p1
+    id: partition-0
+    type: partition
+  - fstype: fat32
+    volume: partition-0
+    preserve: false
+    id: format-1
+    type: format
+  - device: disk-nvme0n1
+    size: 2147483648
+    number: 2
+    preserve: false
+    offset: 1128267776
+    path: /dev/nvme0n1p2
+    id: partition-1
+    type: partition
+  - device: disk-nvme0n1
+    size: 8589934592
+    wipe: superblock
+    flag: swap
+    number: 3
+    preserve: false
+    offset: 3275751424
+    path: /dev/nvme0n1p3
+    id: partition-2
+    type: partition
+  - fstype: swap
+    volume: partition-2
+    preserve: false
+    id: format-2
+    type: format
+  - path: ''
+    device: format-2
+    id: mount-1
+    type: mount
+  - device: disk-nvme0n1
+    size: 1012342456320
+    number: 4
+    preserve: false
+    offset: 11865686016
+    path: /dev/nvme0n1p4
+    id: partition-3
+    type: partition
+  - vdevs:
+    - partition-1
+    pool: bpool
+    mountpoint: /boot
+    pool_properties:
+      ashift: 12
+      autotrim: 'on'
+      feature@async_destroy: enabled
+      feature@bookmarks: enabled
+      feature@embedded_data: enabled
+      feature@empty_bpobj: enabled
+      feature@enabled_txg: enabled
+      feature@extensible_dataset: enabled
+      feature@filesystem_limits: enabled
+      feature@hole_birth: enabled
+      feature@large_blocks: enabled
+      feature@lz4_compress: enabled
+      feature@spacemap_histogram: enabled
+      version: null
+    fs_properties:
+      acltype: posixacl
+      atime: null
+      canmount: 'off'
+      compression: lz4
+      devices: 'off'
+      normalization: formD
+      relatime: 'on'
+      sync: standard
+      xattr: sa
+    default_features: false
+    id: zpool-0
+    type: zpool
+  - pool: zpool-0
+    volume: BOOT
+    properties:
+      canmount: 'off'
+      mountpoint: none
+    id: zfs-0
+    type: zfs
+  - vdevs:
+    - partition-3
+    pool: rpool
+    mountpoint: /
+    pool_properties:
+      ashift: 12
+      autotrim: 'on'
+      version: null
+    fs_properties:
+      acltype: posixacl
+      atime: null
+      canmount: 'off'
+      compression: lz4
+      devices: 'off'
+      dnodesize: auto
+      normalization: formD
+      relatime: 'on'
+      sync: standard
+      xattr: sa
+    default_features: true
+    id: zpool-1
+    type: zpool
+  - pool: zpool-1
+    volume: ROOT
+    properties:
+      canmount: 'off'
+      mountpoint: none
+    id: zfs-2
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp
+    properties:
+      canmount: 'on'
+      mountpoint: /
+    id: zfs-3
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var
+    properties:
+      canmount: 'off'
+    id: zfs-4
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/lib
+    properties:
+      canmount: 'on'
+    id: zfs-5
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/lib/AccountsService
+    properties:
+      canmount: 'on'
+    id: zfs-6
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/lib/apt
+    properties:
+      canmount: 'on'
+    id: zfs-7
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/lib/dpkg
+    properties:
+      canmount: 'on'
+    id: zfs-8
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/lib/NetworkManager
+    properties:
+      canmount: 'on'
+    id: zfs-9
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/srv
+    properties:
+      canmount: 'on'
+    id: zfs-10
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/usr
+    properties:
+      canmount: 'off'
+    id: zfs-11
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/usr/local
+    properties:
+      canmount: 'on'
+    id: zfs-12
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/games
+    properties:
+      canmount: 'on'
+    id: zfs-13
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/log
+    properties:
+      canmount: 'on'
+    id: zfs-14
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/mail
+    properties:
+      canmount: 'on'
+    id: zfs-15
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/snap
+    properties:
+      canmount: 'on'
+    id: zfs-16
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/spool
+    properties:
+      canmount: 'on'
+    id: zfs-17
+    type: zfs
+  - pool: zpool-1
+    volume: ROOT/ubuntu_q08nkp/var/www
+    properties:
+      canmount: 'on'
+    id: zfs-18
+    type: zfs
+  - pool: zpool-1
+    volume: USERDATA
+    properties:
+      canmount: 'off'
+      mountpoint: none
+    id: zfs-19
+    type: zfs
+  - pool: zpool-1
+    volume: USERDATA/root_b90oje
+    properties:
+      canmount: 'on'
+      mountpoint: /root
+    id: zfs-20
+    type: zfs
+  - pool: zpool-1
+    volume: USERDATA/home_b90oje
+    properties:
+      canmount: 'on'
+      mountpoint: /home
+    id: zfs-21
+    type: zfs
+  - pool: zpool-0
+    volume: BOOT/ubuntu_q08nkp
+    properties:
+      canmount: 'on'
+      mountpoint: /boot
+    id: zfs-1
+    type: zfs
+  - path: /boot/efi
+    device: format-1
+    id: mount-0
+    type: mount
+  version: 2
   snaps:
     - name: telegram-desktop
       classic: false
