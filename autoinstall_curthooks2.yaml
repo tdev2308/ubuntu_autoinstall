@@ -3,7 +3,7 @@ autoinstall:
   identity:
     hostname: zbook-2024
     username: tdog
-    password: ""
+    password: "$1$FRFvCZS9$hsvlanCcb0jgsbEBlHWLq."
   storage:
     config:
     - transport: pcie
