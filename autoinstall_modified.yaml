@@ -173,8 +173,19 @@ autoinstall:
         mountpoint: none
       id: zfs-0
       type: zfs
+    - pool: zpool-0
+      volume: BOOT/ubuntu_td2024
+      properties:
+        canmount: 'on'
+        mountpoint: /boot
+      id: zfs-1
+      type: zfs
+    - path: /boot/efi
+      device: format-1
+      id: mount-0
+      type: mount
     - vdevs:
-      - partition-3
+      - partition-4
       pool: rpool
       mountpoint: /
       pool_properties:
@@ -203,101 +214,11 @@ autoinstall:
       id: zfs-2
       type: zfs
     - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp
+      volume: ROOT/ubuntu_td2024
       properties:
         canmount: 'on'
         mountpoint: /
       id: zfs-3
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var
-      properties:
-        canmount: 'off'
-      id: zfs-4
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/lib
-      properties:
-        canmount: 'on'
-      id: zfs-5
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/lib/AccountsService
-      properties:
-        canmount: 'on'
-      id: zfs-6
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/lib/apt
-      properties:
-        canmount: 'on'
-      id: zfs-7
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/lib/dpkg
-      properties:
-        canmount: 'on'
-      id: zfs-8
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/lib/NetworkManager
-      properties:
-        canmount: 'on'
-      id: zfs-9
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/srv
-      properties:
-        canmount: 'on'
-      id: zfs-10
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/usr
-      properties:
-        canmount: 'off'
-      id: zfs-11
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/usr/local
-      properties:
-        canmount: 'on'
-      id: zfs-12
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/games
-      properties:
-        canmount: 'on'
-      id: zfs-13
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/log
-      properties:
-        canmount: 'on'
-      id: zfs-14
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/mail
-      properties:
-        canmount: 'on'
-      id: zfs-15
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/snap
-      properties:
-        canmount: 'on'
-      id: zfs-16
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/spool
-      properties:
-        canmount: 'on'
-      id: zfs-17
-      type: zfs
-    - pool: zpool-1
-      volume: ROOT/ubuntu_q08nkp/var/www
-      properties:
-        canmount: 'on'
-      id: zfs-18
       type: zfs
     - pool: zpool-1
       volume: USERDATA
@@ -307,30 +228,19 @@ autoinstall:
       id: zfs-19
       type: zfs
     - pool: zpool-1
-      volume: USERDATA/root_b90oje
+      volume: USERDATA/root_td2024
       properties:
         canmount: 'on'
         mountpoint: /root
       id: zfs-20
       type: zfs
     - pool: zpool-1
-      volume: USERDATA/home_b90oje
+      volume: USERDATA/home_td2024
       properties:
         canmount: 'on'
         mountpoint: /home
       id: zfs-21
       type: zfs
-    - pool: zpool-0
-      volume: BOOT/ubuntu_q08nkp
-      properties:
-        canmount: 'on'
-        mountpoint: /boot
-      id: zfs-1
-      type: zfs
-    - path: /boot/efi
-      device: format-1
-      id: mount-0
-      type: mount
     swap:
       size: 0
   timezone: America/Los_Angeles
