@@ -336,3 +336,20 @@ autoinstall:
   timezone: America/Los_Angeles
   updates: security
   version: 1
+  snaps:
+    - name: telegram-desktop
+      classic: false
+    - name: obsidian
+      classic: true
+    - name: code
+      classic: true
+    - name: slack
+      classic: false
+  packages:
+    - vim
+    - less
+    - git
+    - openssh-server
+    - nvidia-driver-535
+    - gcc
+    - nvidia-cuda-toolkit
