@@ -119,7 +119,7 @@ autoinstall:
       id: mount-1
       type: mount
     - device: disk-nvme0n1
-      size: 8589934592
+      size: 161061273600
       number: 4
       preserve: false 
       offset: 11865686016
@@ -127,10 +127,10 @@ autoinstall:
       id: partition-2a
       type: partition  
     - device: disk-nvme0n1
-      size: 1003752521728
+      size: 851281182720
       number: 5
       preserve: false
-      offset: 20455620608
+      offset: 172926959616
       path: /dev/nvme0n1p4
       id: partition-3
       type: partition
