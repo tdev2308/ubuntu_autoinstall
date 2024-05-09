@@ -30,10 +30,10 @@ autoinstall:
   codecs:
     install: true
   drivers:
-    install: false
+    install: true
   identity:
-    hostname: tdog-Fury-16-G10
-    password: $6$sG3lgJaa6LCCREHU$DBC1v1hToKY5//oEi7OFEEBWAtrXhKv06Bs7CsmfAACYjwm2qmlGXNr.EFEIsfMK7bRK647XyyS1EkLj9sHm90
+    hostname: tdev-ZBook-Fury-16-G10
+    password: $6$ZC028dIr0tYcDIP4$TFGFQVp6rXrO6E.s.C2JkyMiIH8olBI7AMN5iClfPSHc6ASsqkv.GrOmq3DP69Y87h3bqEo76RkjnQEPu3r/j.
     realname: Thomas DeVera
     username: tdog
   kernel:
@@ -53,7 +53,7 @@ autoinstall:
     install: auto
   source:
     id: ubuntu-budgie-desktop-minimal
-    search_drivers: false
+    search_drivers: true
   ssh:
     allow-pw: true
     authorized-keys: []
@@ -89,7 +89,7 @@ autoinstall:
     - fstype: fat32
       volume: partition-0
       preserve: false
-      id: format-1
+      id: format-0
       type: format
     - device: disk-nvme0n1
       size: 2147483648
@@ -112,27 +112,19 @@ autoinstall:
     - fstype: swap
       volume: partition-2
       preserve: false
-      id: format-2
+      id: format-1
       type: format
     - path: ''
-      device: format-2
+      device: format-1
       id: mount-1
       type: mount
     - device: disk-nvme0n1
-      size: 8589934592
+      size: 1012342456320
       number: 4
       preserve: false
-      offset: 20455620608
+      offset: 11865686016
       path: /dev/nvme0n1p4
       id: partition-3
-      type: partition
-    - device: disk-nvme0n1
-      size: 1003752521728
-      number: 5
-      preserve: false
-      offset: 29045555200
-      path: /dev/nvme0n1p5
-      id: partition-4
       type: partition
     - vdevs:
       - partition-1
@@ -173,19 +165,8 @@ autoinstall:
         mountpoint: none
       id: zfs-0
       type: zfs
-    - pool: zpool-0
-      volume: BOOT/ubuntu_td2024
-      properties:
-        canmount: 'on'
-        mountpoint: /boot
-      id: zfs-1
-      type: zfs
-    - path: /boot/efi
-      device: format-1
-      id: mount-0
-      type: mount
     - vdevs:
-      - partition-4
+      - partition-3
       pool: rpool
       mountpoint: /
       pool_properties:
@@ -214,11 +195,101 @@ autoinstall:
       id: zfs-2
       type: zfs
     - pool: zpool-1
-      volume: ROOT/ubuntu_td2024
+      volume: ROOT/ubuntu_3srku4
       properties:
         canmount: 'on'
         mountpoint: /
       id: zfs-3
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var
+      properties:
+        canmount: 'off'
+      id: zfs-4
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/lib
+      properties:
+        canmount: 'on'
+      id: zfs-5
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/lib/AccountsService
+      properties:
+        canmount: 'on'
+      id: zfs-6
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/lib/apt
+      properties:
+        canmount: 'on'
+      id: zfs-7
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/lib/dpkg
+      properties:
+        canmount: 'on'
+      id: zfs-8
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/lib/NetworkManager
+      properties:
+        canmount: 'on'
+      id: zfs-9
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/srv
+      properties:
+        canmount: 'on'
+      id: zfs-10
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/usr
+      properties:
+        canmount: 'off'
+      id: zfs-11
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/usr/local
+      properties:
+        canmount: 'on'
+      id: zfs-12
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/games
+      properties:
+        canmount: 'on'
+      id: zfs-13
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/log
+      properties:
+        canmount: 'on'
+      id: zfs-14
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/mail
+      properties:
+        canmount: 'on'
+      id: zfs-15
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/snap
+      properties:
+        canmount: 'on'
+      id: zfs-16
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/spool
+      properties:
+        canmount: 'on'
+      id: zfs-17
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_3srku4/var/www
+      properties:
+        canmount: 'on'
+      id: zfs-18
       type: zfs
     - pool: zpool-1
       volume: USERDATA
@@ -228,19 +299,30 @@ autoinstall:
       id: zfs-19
       type: zfs
     - pool: zpool-1
-      volume: USERDATA/root_td2024
+      volume: USERDATA/root_prcqey
       properties:
         canmount: 'on'
         mountpoint: /root
       id: zfs-20
       type: zfs
     - pool: zpool-1
-      volume: USERDATA/home_td2024
+      volume: USERDATA/home_prcqey
       properties:
         canmount: 'on'
         mountpoint: /home
       id: zfs-21
       type: zfs
+    - pool: zpool-0
+      volume: BOOT/ubuntu_3srku4
+      properties:
+        canmount: 'on'
+        mountpoint: /boot
+      id: zfs-1
+      type: zfs
+    - path: /boot/efi
+      device: format-0
+      id: mount-0
+      type: mount
     swap:
       size: 0
   timezone: America/Los_Angeles
