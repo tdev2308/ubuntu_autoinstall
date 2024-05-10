@@ -126,4 +126,18 @@ drwxrwx--- 4 root adm     20 May  7 14:05 ../
 env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/ubuntu-desktop-bootstrap_ubuntu-desktop-bootstrap.desktop /snap/bin/ubuntu-desktop-bootstrap
 
 
+    1  lsblk
+    2  sudo gdisk -l /dev/nvme0n1
+    3  sudo zfs list
+    4  lsblk
+    5  sudo zpool status
+    6  sudo apt-get update
+    7  sudo apt update
+    8  sudo apt install timeshift
+    9  timeshift
+   10  timeshift-gtk 
+   11  sudo zpool status
+   12  lsblk
+   13  sudo mkfs.ext4 /dev/nvme0n1p4 
+   14  history
 
