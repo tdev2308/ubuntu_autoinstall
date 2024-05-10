@@ -124,6 +124,7 @@ drwxrwx--- 4 root adm     20 May  7 14:05 ../
 
 
 env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/ubuntu-desktop-bootstrap_ubuntu-desktop-bootstrap.desktop /snap/bin/ubuntu-desktop-bootstrap
+https://raw.githubusercontent.com/tdev2308/ubuntu_autoinstall/main/autoinstall_modified3.yaml
 
 
     1  lsblk
