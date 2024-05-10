@@ -263,3 +263,4 @@ autoinstall:
     - nvidia-driver-535
     - gcc
     - nvidia-cuda-toolkit
+    - timeshift
