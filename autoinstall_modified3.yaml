@@ -125,7 +125,12 @@ autoinstall:
       offset: 11812208640
       path: /dev/nvme0n1p4
       id: partition-3
-      type: partition  
+      type: partition
+    - fstype: ext4
+      volume: partition-3
+      preserve: false
+      id: format-3
+      type: format  
     - device: disk-nvme0n1
       size: -1
       number: 5
