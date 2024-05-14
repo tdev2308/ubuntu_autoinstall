@@ -142,3 +142,5 @@ https://raw.githubusercontent.com/tdev2308/ubuntu_autoinstall/main/autoinstall_m
    13  sudo mkfs.ext4 /dev/nvme0n1p4 
    14  history
 
+docker info
+
