@@ -235,6 +235,13 @@ autoinstall:
         mountpoint: /home
       id: zfs-6
       type: zfs
+    - pool: zpool-1
+      volume: USERDATA/docker_td2024
+      properties:
+        canmount: 'on'
+        mountpoint: /var/lib/docker
+      id: zfs-7
+      type: zfs
     - pool: zpool-0
       volume: BOOT/ubuntu_td2024
       properties:
