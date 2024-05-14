@@ -265,8 +265,8 @@ autoinstall:
       classic: true
     - name: code
       classic: true
-    #- name: slack
-    #  classic: false
+    - name: mattermost-desktop
+      classic: false
   packages:
     - vim
     - less
@@ -276,3 +276,5 @@ autoinstall:
     - gcc
     - nvidia-cuda-toolkit
     - timeshift
+  late-commands:
+    
