@@ -1,0 +1,209 @@
+autoinstall:
+  version: 1
+  identity:
+    username: jordahl
+    password: "$1$jMMXtw6.$MmxOZRUtYVI/LV5FiiUNg0"
+    hostname: test
+    realname: Steve Jordahl
+  # source:
+  #   id: ubuntu-budgie-desktop-minimal
+  #   search_drivers: false
+  timezone: America/Chicago
+  updates: security
+  ssh:
+    allow-pw: true
+    authorized-keys: []
+    install-server: true
+  packages:
+    - vim
+    - less
+    - git
+    - cifs-utils
+    - timeshift
+  snaps:
+    - name: obsidian
+      classic: true
+  storage:
+    config:
+# partitioning
+    - ptable: gpt
+      path: /dev/xvda
+      wipe: superblock-recursive
+      preserve: false
+      name: ''
+      grub_device: false
+      id: disk-xvda
+      type: disk
+    - device: disk-xvda
+      # size: 1127219200
+      size: 1073741824
+      wipe: superblock
+      flag: boot
+      number: 1
+      preserve: false
+      grub_device: true
+      offset: 2097152
+      id: partition-0
+      type: partition
+    - fstype: fat32
+      volume: partition-0
+      preserve: false
+      id: format-0
+      type: format
+    - device: disk-xvda
+      size: 2147483648
+      number: 2
+      preserve: false
+      # offset: 1128267776
+      offset: 1075838976
+      id: partition-1
+      type: partition
+    - device: disk-xvda
+      # size: 4294967296
+      size: 8589934592
+      wipe: superblock
+      flag: swap
+      number: 3
+      preserve: false
+      # offset: 3275751424
+      offset: 3223322624
+      id: partition-2
+      type: partition
+    - fstype: swap
+      volume: partition-2
+      preserve: false
+      id: format-1
+      type: format
+    - path: ''
+      device: format-1
+      id: mount-1
+      type: mount
+
+    - device: disk-xvda
+      size: 5368709120
+      number: 4
+      preserve: false
+      offset: 11813257216
+      id: partition-4
+      type: partition
+    - fstype: ext4
+      volume: partition-4
+      preserve: false
+      id: format-2
+      type: format
+
+    - device: disk-xvda
+      size: -1
+      number: 5
+      preserve: false
+      # offset: 7570718720
+      offset: 17181966336
+      id: partition-3
+      type: partition
+    - vdevs:
+      - partition-1
+      pool: bpool
+      mountpoint: /boot
+      pool_properties:
+        ashift: 12
+        autotrim: 'on'
+        feature@async_destroy: enabled
+        feature@bookmarks: enabled
+        feature@embedded_data: enabled
+        feature@empty_bpobj: enabled
+        feature@enabled_txg: enabled
+        feature@extensible_dataset: enabled
+        feature@filesystem_limits: enabled
+        feature@hole_birth: enabled
+        feature@large_blocks: enabled
+        feature@lz4_compress: enabled
+        feature@spacemap_histogram: enabled
+        version: null
+      fs_properties:
+        acltype: posixacl
+        atime: null
+        canmount: 'off'
+        compression: lz4
+        devices: 'off'
+        normalization: formD
+        relatime: 'on'
+        sync: standard
+        xattr: sa
+      default_features: false
+      id: zpool-0
+      type: zpool
+    - pool: zpool-0
+      volume: BOOT
+      properties:
+        canmount: 'off'
+        mountpoint: none
+      id: zfs-0
+      type: zfs
+    - vdevs:
+      - partition-3
+      pool: rpool
+      mountpoint: /
+      pool_properties:
+        ashift: 12
+        autotrim: 'on'
+        version: null
+      fs_properties:
+        acltype: posixacl
+        atime: null
+        canmount: 'off'
+        compression: lz4
+        devices: 'off'
+        dnodesize: auto
+        normalization: formD
+        relatime: 'on'
+        sync: standard
+        xattr: sa
+      default_features: true
+      id: zpool-1
+      type: zpool
+    - pool: zpool-1
+      volume: ROOT
+      properties:
+        canmount: 'off'
+        mountpoint: none
+      id: zfs-2
+      type: zfs
+    - pool: zpool-1
+      volume: ROOT/ubuntu_nup8vw
+      properties:
+        canmount: 'on'
+        mountpoint: /
+      id: zfs-3
+      type: zfs
+    - pool: zpool-1
+      volume: USERDATA
+      properties:
+        canmount: 'off'
+        mountpoint: none
+      id: zfs-19
+      type: zfs
+    - pool: zpool-1
+      volume: USERDATA/root_d4hzs9
+      properties:
+        canmount: 'on'
+        mountpoint: /root
+      id: zfs-20
+      type: zfs
+    - pool: zpool-1
+      volume: USERDATA/home_d4hzs9
+      properties:
+        canmount: 'on'
+        mountpoint: /home
+      id: zfs-21
+      type: zfs
+    - pool: zpool-0
+      volume: BOOT/ubuntu_nup8vw
+      properties:
+        canmount: 'on'
+        mountpoint: /boot
+      id: zfs-1
+      type: zfs
+    - path: /boot/efi
+      device: format-0
+      id: mount-0
+      type: mount
