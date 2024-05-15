@@ -144,4 +144,6 @@ https://raw.githubusercontent.com/tdev2308/ubuntu_autoinstall/main/autoinstall_m
 
 docker info
 
+# After the autoinstall process has compoleted and the OS is up and running, I need to run the following command to enroll a MOK key.
+# This key is required to allow the system to recognize the NVIDIA Card.
 sudo mokutil --import /var/lib/shim-signed/mok/MOK.der
