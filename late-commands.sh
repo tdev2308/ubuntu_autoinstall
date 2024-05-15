@@ -19,8 +19,8 @@ EOF
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 # enroll MOK for NVIDIA driver
 #mokutil -gpassword letmein345 > /tmp/mokpwd
-openssl passwd -6 letmein345 > /tmp/mokpwd
-mokutil --import /var/lib/shim-signed/mok/MOK.der -f /tmp/mokpwd
+#openssl passwd -6 letmein345 > /tmp/mokpwd
+#mokutil --import /var/lib/shim-signed/mok/MOK.der -f /tmp/mokpwd
 # install nvidia-container-toolkit
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
   gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
