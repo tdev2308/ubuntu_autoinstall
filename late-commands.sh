@@ -18,7 +18,7 @@ EOF
 #echo "{  \"storage-driver\": \"zfs\"  }" > /etc/docker/daemon.json
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 # enroll MOK for NVIDIA driver
-mokutil -gpassword "letmein345" > /tmp/mokpwd
+mokutil -gpassword letmein345 > /tmp/mokpwd
 mokutil --import /var/lib/shim-signed/mok/MOK.der -f /tmp/mokpwd
 # install nvidia-container-toolkit
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
