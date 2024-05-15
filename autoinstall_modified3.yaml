@@ -300,8 +300,8 @@ autoinstall:
     #- curtin in-target -- echo '{  "storage-driver": "zfs"  }' > /etc/docker/daemon.json
     #- curtin in-target -- echo "\{  \"storage-driver\": \"zfs\"  \}" > /etc/docker/daemon.json
     # enroll MOK for NVIDIA driver
-    - curtin in-target -- mokutil -gpassword "enrollme3" > /tmp/mokpwd
-    - curtin in-target -- mokutil --import /var/lib/shim-signed/mok/MOK.der -f /tmp/mokpwd
+    - curtin in-target -- mokutil -gpassword "enrollme3" > /target/tmp/mokpwd
+    - curtin in-target -- mokutil --import /var/lib/shim-signed/mok/MOK.der -f /target/tmp/mokpwd
     # install nvidia-container-toolkit
     - >-
       curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /target/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
