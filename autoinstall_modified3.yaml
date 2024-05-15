@@ -289,7 +289,9 @@ autoinstall:
       echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /target/etc/apt/sources.list.d/docker.list
     - curtin in-target -- apt-get update
     - mkdir /target/etc/docker
-    - cat <<EOF >>/target/etc/docker/daemon.json { "storage-driver" : "zfs" } EOF
+    - >-
+      echo '{ "storage-driver" : "zfs" }' | tee /target/etc/docker/daemon.json
+    #- >- cat <<EOF >>/target/etc/docker/daemon.json { "storage-driver" : "zfs" } EOF
     - curtin in-target -- apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     #  curtin in-target -- echo 
     #  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu 
