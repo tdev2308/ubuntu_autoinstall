@@ -267,6 +267,8 @@ autoinstall:
       classic: true
     - name: mattermost-desktop
       classic: false
+    - name: slack
+      classic: false
     - name: sublime-text
       classic: true
   packages:
