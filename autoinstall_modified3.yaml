@@ -290,10 +290,8 @@ autoinstall:
     - curtin in-target -- apt-get update
     - mkdir /target/etc/docker
     - >-
-      cat <<EOF >>/target/etc/docker/daemon.json 
-      {
-          "storage-driver" : "zfs"
-      }
+      cat <<'EOF' >>/target/etc/docker/daemon.json 
+      { "storage-driver" : "zfs" }
       EOF
     - curtin in-target -- apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     #  curtin in-target -- echo 
