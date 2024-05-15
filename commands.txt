@@ -144,3 +144,4 @@ https://raw.githubusercontent.com/tdev2308/ubuntu_autoinstall/main/autoinstall_m
 
 docker info
 
+sudo mokutil --import /var/lib/shim-signed/mok/MOK.der
