@@ -290,7 +290,7 @@ autoinstall:
     - curtin in-target -- apt-get update
     - mkdir /target/etc/docker
     - >-
-      cat <<\EOF >>/target/etc/docker/daemon.json 
+      cat <<EOF >>/target/etc/docker/daemon.json 
       {
           "storage-driver" : "zfs"
       }
