@@ -265,6 +265,8 @@ autoinstall:
       classic: true
     - name: code
       classic: true
+    - name: libreoffice
+      classic: false
     - name: mattermost-desktop
       classic: false
     - name: slack
