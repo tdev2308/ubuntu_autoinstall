@@ -147,3 +147,16 @@ docker info
 # After the autoinstall process has compoleted and the OS is up and running, I need to run the following command to enroll a MOK key.
 # This key is required to allow the system to recognize the NVIDIA Card.
 sudo mokutil --import /var/lib/shim-signed/mok/MOK.der
+
+
+
+# After adding the 2 TB drive to the ZBook Fury, it needed to be added to the ZFS pool
+zpool import -f nvme0n1
+zpool status
+zpool upgrade nvme0n1
+zpool status
+
+# Allow my user tdog to run docker by adding it to the docker Group
+35  usermod -aG docker tdog
+
+
